@@ -43,6 +43,11 @@ function getRenderer(src: string | ImageAsset | File) {
             // return com.caverock.androidsvg.SVG.getFromInputStream(stream);
         }
     }
+
+    if (/^https?:\/\//.test(imagePath)) {
+      return SVGRenderer.alloc().initWithContentsOfURL(NSURL.URLWithString(imagePath));
+    }
+
     return SVGRenderer.alloc().initWithString(imagePath);
 }
 // function getSVGKImage(src: string | ImageAsset | File) {

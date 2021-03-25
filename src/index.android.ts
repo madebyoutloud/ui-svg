@@ -42,6 +42,14 @@ function getSVG(src: string | ImageAsset | File) {
             return com.caverock.androidsvg.SVG.getFromInputStream(stream);
         }
     }
+
+    if (/^https?:\/\//.test(imagePath)) {
+        const url = new java.net.URL(imagePath);
+        const urlConnection = url.openConnection();
+        const stream = urlConnection.getInputStream();
+        return com.caverock.androidsvg.SVG.getFromInputStream(stream);
+    }
+
     return com.caverock.androidsvg.SVG.getFromString(imagePath);
 }
 
