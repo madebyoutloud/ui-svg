@@ -1,6 +1,9 @@
 {
-    "name": "@nativescript-community/ui-svg",
+    "name": "@outloud/nativescript-ui-svg",
     "version": "0.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "setup": "ts-patch install",
         "prepare": "npm run setup",
